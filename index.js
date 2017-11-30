@@ -13,7 +13,6 @@ module.exports = ({ exe = 'C:/Program Files (x86)/Cisco/Cisco AnyConnect Secure 
             tmp.file({ prefix: 'vpn-', postfix: '.txt' }, (err, path, fd, cleanup) => {
                 acceptCertificate = acceptCertificate ? acceptCertificate + '\n' : ''
                 group = group ? group + '\n' : ''
-                console.log(`${acceptCertificate}${group}${username}\n${password}\n`)
                 if (err) reject(err)
                 else writeFile(path, `${acceptCertificate}${group}${username}\n${password}\n`, err => {
                     if (err) reject(err)
